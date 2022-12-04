@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for, flash
+from flask import render_template, request, url_for, flash, make_response
 from werkzeug.utils import redirect
 from models.cliente import Cadastrocliente
 from conection.conexao import *
@@ -125,6 +125,11 @@ def delete_cliente(id):
         db.session.delete(user)
         db.session.commit()
         return redirect(url_for("listar_clientes"))
+
+# check health:
+@app.route('/health')
+def health():
+    return make_response('OK', 200)
     
 
 if __name__ == "__main__":
