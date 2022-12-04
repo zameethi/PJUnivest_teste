@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% block conteudo %} {% with messages = get_flashed_messages() %} {% if messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% for message in messages %} {{ message }} {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %} {% endwith %}
+<section class="page-section cta">
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="container-fluid">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper text-primary">Lista</span>
+                        <span class="section-heading-lower text-white">Exibição de Clientes</span>
+                    </h2>
+
+                    <table class="table-responsive-xl table-hover table-bordered table-dark ">
+                        <thead>
+                            <tr>
+
+                                <th scope="col"> Name </th>
+                                <th scope="col"> Razão Social </th>
+                                <th scope="col"> CNPJ ou CPF </th>
+                                <th scope="col"> CEP </th>
+                                <th scope="col"> Rua </th>
+                                <th scope="col"> Numero </th>
+                                <th scope="col"> Bairro </th>
+                                <th scope="col"> Cidade </th>
+                                <th scope="col"> Estado </th>
+                                <th scope="col"> E-mail </th>
+                                <th scope="col"> Telefone </th>
+                                <th scope="col"> Editar </th>
+                                <th scope="col"> Excluir </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            {% for item in clientes %}
+
+                            <td>
+                                {{ item.nome }}
+                            </td>
+                            <td>{{ item.razao_social }}</td>
+                            <td>{{ item.cnpj_cpf }}</td>
+                            <td>{{ item.cep }}</td>
+                            <td>{{ item.rua }}</td>
+                            <td>{{ item.numero }}</td>
+                            <td>{{ item.bairro }}</td>
+                            <td>{{ item.cidade }}</td>
+                            <td>{{ item.uf }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.telefone }}</td>
+                            <td>
+                                <a href="{{url_for('editar_clientes', id=item.id)}}">
+                                    <button type="button" class="btn btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z">
+                            </path>
+                            </svg>
+                            </button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{url_for('delete_cliente', id=item.id)}}"><button type="button" class="btn btn-danger">                                        
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                          </svg>
+                            </button>
+                                </a>
+                            </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock conteudo %}

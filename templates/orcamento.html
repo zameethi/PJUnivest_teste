@@ -1,0 +1,99 @@
+{% extends 'base.html' %} {% block conteudo %}
+<div class="card text-center">
+    <div class="card-body">
+        <h3> Orçamento de Clientes</h3>
+    </div>
+</div>
+<div class="container">
+    <table class="table table table-sm table-dark table-bordered">
+        <thead class="thead">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Razão Social</th>
+                <th scope="col">CNPJ ou CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">CNAE</th>
+                <th scope="col">Data do Orçamento</th>
+                <th scope="col">Descritivo</th>
+                <th scope="col">Observação</th>
+                <th scope="col">Valor Total</th>
+
+
+
+            </tr>
+
+
+            <tr>
+                <th scope="row">Sérgio Martins Zigaib</th>
+                <td>SMZigaib</td>
+                <td>29349528860</td>
+                <td>11 973092344</td>
+                <td>sergiozigaib@hotmail.com</td>
+                <td>Manutenção de estações e redes de telecomunicações</td>
+                <td>01/07/2022 - 09:37</td>
+                <td>Troca de Cabo de rede UTP Cat6</td>
+                <td>Cabeamaneto com defeito</td>
+                <td>230,00</td>
+            </tr>
+        </thead>
+        </tbody>
+    </table>
+</Div>
+{% endblock conteudo %} {% extends 'base.html' %} {% block conteudo %} {% if mensagem %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ mensagem }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+{% endif %}
+
+<section class="page-section about-heading" z>
+    <div class="container text-primary">
+
+        <div class="about-heading-content text-primary">
+            <div class="row">
+                <section class="page-section cta">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9 mx-auto">
+                                <div class="cta-inner bg-faded text-center text-primary rounded">
+                                    <h2 class="section-heading mb-5">
+                                        <span class="section-heading-upper">Orçamento</span>
+                                    </h2>
+                                    <div class="form-group">
+                                        <input name="cep" class="form-control item" type="text" id="cep" value="" placeholder="CEP" onblur="pesquisacep(this.value);" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <input name="rua" type="text" class="form-control item" id="rua" placeholder="Rua" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input name="numero" type="text" class="form-control item" id="rua" placeholder="Numero" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="bairro" type="text" class="form-control item" id="bairro" placeholder="Bairro" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="cidade" type="text" class="form-control item" id="cidade" placeholder="Cidade" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="uf" type="text" class="form-control item" id="uf" placeholder="Estado" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock conteudo %}

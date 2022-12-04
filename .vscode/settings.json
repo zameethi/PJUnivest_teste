@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+{
+    "python.formatting.provider": "black"
+=======
+{
+    "python.formatting.provider": "autopep8"
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
+}
